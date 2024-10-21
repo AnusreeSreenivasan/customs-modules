@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Define the category for groups -->
+        <record model="ir.module.category" id="module_sale_order">
+            <field name="name">Sale Order</field>
+        </record>
+
+        <!-- Define the 'User' group -->
+        <record id="group_sale_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="saleorder_confirm.module_sale_order"/>
+        </record>
+
+        <!-- Define the 'Admin' group -->
+        <record id="group_sale_admin" model="res.groups">
+            <field name="name">Admin</field>
+            <!-- mymodulename.module_modelname -->
+            <field name="category_id" ref="saleorder_confirm.module_sale_order"/>
+            <field name="implied_ids" eval="[(4, ref('group_sale_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+        
+    </data>
+</odoo>
+

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_order_form_inherited" model="ir.ui.view">
+            <field name="name">sale.order.form.inherited</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header/field[@name='state']" position="replace">
+                    <field name="state" widget="statusbar" statusbar_visible="draft,sent,waiting_approval,approval,sale"/>
+                </xpath>
+                <xpath expr="//header/button[@name='action_confirm'][1]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//header/button[@name='action_confirm'][2]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//header" position="inside">
+                    <field name="state" invisible="1"/>
+                    <button name="action_set_waiting_approval" type="object" string="Submit" class="btn-primary"  invisible="state in  ['approval','waiting_approval']"/>
+                    <button name="action_confirm" type="object" string="Confirm Sale" class="oe_highlight" invisible="state not in ['approval']"/>
+                    <button name="action_draft_confirm" type="object" string="Reject" class="btn-primary"  invisible="state not in  ['waiting_approval']" groups="saleorder_confirm.group_sale_admin"/>
+                    <button name="action_set_approval" type="object" string="Approved" class="oe_highlight" invisible="state not in ['waiting_approval']" groups="saleorder_confirm.group_sale_admin"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
+
+
+
