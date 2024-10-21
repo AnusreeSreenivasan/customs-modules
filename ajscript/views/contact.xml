@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ajs_contact_list" model="ir.ui.view">
+        <field name="name">view.ajs.contact.list</field>
+        <field name="model">ajs.contact</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="age"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ajs_contact_form" model="ir.ui.view">
+        <field name="name">view.ajs.contact.form</field>
+        <field name="model">ajs.contact</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="age"/>
+                   
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ajs_contact_ map" model="ir.ui.view">
+        <field name="name">view.ajs.contact.map</field>
+        <field name="model">ajs.contact</field>
+        <field name="arch" type="xml">
+        <map string="Contact Map" res_partner="partner_id" coordinate_field="coordinate">
+            <field name="name" string="Customer"/>
+            <field name="latitude" invisible="1"/>
+            <field name="longitude" invisible="1"/>
+        </map>
+        </field>
+    </record>
+    
+    <record id="action_ajs_contact" model="ir.actions.act_window">
+        <field name="name">Contact</field>
+        <field name="res_model">ajs.contact</field>
+        <field name="view_mode">tree,form,map</field>
+    </record>
+
+    <menuitem name="AJScript" id="menu_ajscript">
+        <menuitem name="Contact" id="menu_ajs_contacts" action="action_ajs_contact"/>
+    </menuitem>
+</odoo>

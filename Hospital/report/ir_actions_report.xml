@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_report_hospital_appointments" model="ir.actions.report">
+            <field name="name">Print</field>
+            <field name="model">hospital.appointments</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">Hospital.report_hospital_appointments</field>
+            <field name="report_file">Hospital.report_hospital_appointments</field>
+            <field name="print_report_name">'Product Report - %s' % (object.patient_id.name)</field>
+            <field name="binding_model_id" ref="model_hospital_appointments"/>
+            <field name="binding_type">report</field>
+        </record>
+        
+       
+        
+
+    </data>
+
+  
+</odoo>

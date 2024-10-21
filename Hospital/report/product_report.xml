@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_hospital_appointments">
+            <t t-call="web.html_container">
+                <t t-call="web.internal_layout">
+                    <t t-foreach="docs" t-as="o">
+                        <div class="page">
+                            <center>
+                                <h2>Hospital Appointment Details</h2>
+                            </center>
+                            <table class="table table-sm table-striped table-bordered" style="width: 100%;">
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Name:</strong></td>
+                                        <td><span t-field="o.patient_id.name"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Doctor Name:</strong></td>
+                                        <td><span t-field="o.doctor_id.name"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Appointment Date:</strong></td>
+                                        <td><span t-field="o.appointment_time"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Booking Date:</strong></td>
+                                        <td><span t-field="o.booking_date"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Prescription:</strong></td>
+                                        <td><span t-field="o.prescription_details"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="content" t-if="o.description_ids">
+                            <div class="description-page">
+                                <center><h3>Description</h3></center>
+                                <table class="table table-sm table-striped table-bordered" style="width: 100%;">
+                                    <thead>
+                                        <tr>
+                                            <th>Medicine</th>
+                                            <th>Description</th>
+                                            <th>Dosage</th>
+                                            <th>Unit</th>
+                                            <th>Frequency</th>
+                                            <th>Duration</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="o.description_ids" t-as="p">
+                                            <tr>
+                                                <td><span t-field="p.medicine_id.name"/></td>
+                                                <td><span t-field="p.descriptions"/></td>
+                                                <td><span t-field="p.dos_age"/></td>
+                                                <td><span t-field="p.duration_unit"/></td>
+                                                <td><span t-field="p.frequency"/></td>
+                                                <td><span t-field="p.duration"/></td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+    </template>
+
+    </data>
+</odoo>

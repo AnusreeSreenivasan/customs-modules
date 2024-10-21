@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sale_sql_view_tree" model="ir.ui.view">
+            <field name="name">sale.sql.view.tree</field>
+            <field name="model">sale.sql.view</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sale_number"/>
+                    <field name="customer_name"/>
+                    <field name="order_date"/>
+                    <field name="amount"/>
+                    <field name="currency_id"/>
+                    <field name="user_name"/>
+                    <field name="product_qty"/>
+                    <field name="product_volume"></field>
+                    <!-- <field name="total_amount" sum="Total Amount"/> -->
+
+                </tree>
+            </field>
+        </record>
+        <record id="sale_sql_view_action" model="ir.actions.act_window">
+            <field name="name">Sales Sql View</field>
+            <field name="res_model">sale.sql.view</field>
+            <field name="view_mode">tree</field>
+        </record>
+        
+        <menuitem
+            id="sale_reports"
+            name="Sales Sql View"
+            action="sale_sql_view_action"
+            parent="sale.menu_sale_report"
+            sequence="10"/>
+            
+    </data>
+
+</odoo>

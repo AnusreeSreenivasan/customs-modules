@@ -1,0 +1,26 @@
+{
+    'name':'Hospital Management',
+    'author':'Odoo Mates',
+    'website':'www.odoomates.tech',
+    'summary':'Oddo 17 Development',
+    'depends':['mail',
+               'product',
+               'base',
+               'contacts',
+               ],
+    'data':[
+        'security/ir.model.access.csv',
+        # 'security/security.xml',
+        'data/sequence.xml',
+        'view/patient.xml',
+        'view/doctor.xml',
+        'view/department.xml',
+        'view/appointments.xml',
+        'view/diagnosis.xml',
+        'report/ir_actions_report.xml',
+        'report/product_report.xml',
+        'view/menu.xml',
+    ],
+    'application':True,
+    
+}

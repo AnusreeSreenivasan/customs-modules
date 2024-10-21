@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="custom_widget_form_view" model="ir.ui.view">
+        <field name="name">custom.widget.form</field>
+        <field name="model">custom.widget</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="custom_widgets" widget="color_picker_widget"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="custom_widget_action" model="ir.actions.act_window">
+            <field name="name">Custom Widget</field>
+            <field name="res_model">custom.widget</field>
+            <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <menuitem 
+        id="custom_widget_menu_root"
+        name="Custom Widget">
+        <menuitem
+            id="custom_widget_menu"
+            name="Home"
+            action="custom_widget_action"/>
+    </menuitem>
+
+</odoo>

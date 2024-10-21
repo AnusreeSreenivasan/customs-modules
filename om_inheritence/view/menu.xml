@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        id="menu_saleorder_root"
+        name="SaleOrder"
+        sequence="10"/>
+
+    <menuitem
+        id="menu_accountmove_root"
+        name="Invoice"
+        sequence="10"/>    
+ </odoo>       

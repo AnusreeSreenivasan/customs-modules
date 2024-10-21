@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id=""
+        name="VAT Report"
+        action="vat_report_wizard_action"
+        parent="account_dynamic_reports.account_reports_ins_wiz"
+        sequence="10"/>
+
+</odoo>
